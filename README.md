@@ -1,12 +1,14 @@
 # Star Wars Hero App
 
-You can search for your favorite star wars heros with this app.
+You can search for your favorite star wars heroes with this app.
 
 ## Tech Stack
 
 1-React.js with Typescript
 
 2-Heroku for continuous Deployment
+
+3-react-testing-library
 
 ## Available Scripts
 
