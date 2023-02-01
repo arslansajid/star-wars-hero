@@ -2,15 +2,16 @@ import { useState, useEffect, useMemo } from "react";
 import HeroesTable from "./components/HeroesTable";
 import { fetchPeople, searchPeople } from "./api";
 import useDebounce from "./hooks/useDebounce";
+import { HeroType } from "./App.types";
 import "./App.css";
 
 const App = () => {
   // Search term
   const [searchTerm, setSearchTerm] = useState<string>("");
   //API fetch data
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<HeroType[]>([]);
   // API search results
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<HeroType[]>([]);
   // Searching status (whether there is pending API request)
   const [isSearching, setIsSearching] = useState<boolean>(true);
   // Debounce search term so that it only gives us latest value ...
@@ -28,13 +29,13 @@ const App = () => {
       setResults([]);
     }
   }, [debouncedSearchTerm]);
-  
+
   // Initial fetch on page load
   useEffect(() => {
     fetchPeople()
       .then((res) => {
         setIsSearching(false);
-        setData(res.results);
+        setData(res);
       })
       .catch((err) => {
         setIsSearching(false);

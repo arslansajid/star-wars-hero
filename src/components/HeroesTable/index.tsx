@@ -1,7 +1,8 @@
+import { HeroType } from "../../App.types";
 import "./styles.css";
 
 interface HeroesTableProps {
-  data: any;
+  data: HeroType[];
   isLoading: boolean;
 }
 
@@ -21,7 +22,7 @@ const HeroesTable = (props: HeroesTableProps) => {
         </thead>
         <tbody>
           {data.length ? (
-            data.map((item: any) => (
+            data.map((item: HeroType) => (
               <tr key={`${item.name}_${item.height}`}>
                 <td>{item.name}</td>
                 <td>{item.height}</td>
